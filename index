@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Travelia - טיול חלומי - Мечта Путешествий - Voyage de Rêve - رحلة الأحلام - Viaje de Ensueño</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f4f8; margin: 0; }
+        header, footer { background: #004080; color: white; text-align: center; padding: 15px; }
+        nav { background: #e0e0e0; padding: 10px; text-align: center; }
+        nav a { margin: 10px; color: #004080; text-decoration: none; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        .lang-select { position: absolute; top: 10px; right: 10px; }
+        section { margin: 20px auto; padding: 20px; background: white; border-radius: 10px; width: 90%; max-width: 800px; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+        h1, h2 { color: #004080; }
+        button { background: #004080; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0066cc; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 id="title">Travelia - טיול חלומי - Мечта Путешествий - Voyage de Rêve - رحلة الأحلام - Viaje de Ensueño</h1>
+    <div class="lang-select">
+        <select id="lang" onchange="changeLang()">
+            <option value="en">English</option>
+            <option value="he">עברית</option>
+            <option value="ru">Русский</option>
+            <option value="fr">Français</option>
+            <option value="ar">العربية</option>
+            <option value="es">Español</option>
+        </select>
+    </div>
+</header>
+
+<nav>
+    <a href="#home" id="homeLink">Home</a>
+    <a href="#deals" id="dealsLink">Deals</a>
+    <a href="#contact" id="contactLink">Contact</a>
+</nav>
+
+<section id="home">
+    <h2 id="welcome">Welcome to Travelia!</h2>
+    <p id="homeText">Find the best flights, hotels, car rentals, and transfers worldwide.</p>
+    <button onclick="searchFlightHotel()">Search Flight + Hotel</button>
+    <button onclick="searchFlights()">Search Flights Only</button>
+    <button onclick="searchHotels()">Search Hotels Only</button>
+</section>
+
+<section id="deals">
+    <h2 id="dealsTitle">Hot Deals</h2>
+    <ul>
+        <li id="deal1">Flight + Hotel in Greece from $299!</li>
+        <li id="deal2">Flight + Hotel + Car in Spain from $450!</li>
+        <li id="deal3">Flight + Hotel + Transfers in Dubai from $499!</li>
+    </ul>
+</section>
+
+<section id="search">
+    <h2>Search Separately</h2>
+    <button onclick="searchFlights()">Search Flights Only</button>
+    <button onclick="searchHotels()">Search Hotels Only</button>
+</section>
+
+<section id="contact">
+    <h2 id="contactTitle">Contact Us</h2>
+    <p id="email">Email: example@email.com</p>
+    <p id="phone">Phone: +1-234-567-8900</p>
+</section>
+
+<footer>
+    <p>&copy; 2025 Travelia. All rights reserved.</p>
+</footer>
+
+<script>
+    const texts = {
+        en: {
+            title: "Travelia",
+            homeLink: "Home",
+            dealsLink: "Deals",
+            contactLink: "Contact",
+            welcome: "Welcome to Travelia!",
+            homeText: "Find the best flights, hotels, car rentals, and transfers worldwide.",
+            dealsTitle: "Hot Deals",
+            deal1: "Flight + Hotel in Greece from $299!",
+            deal2: "Flight + Hotel + Car in Spain from $450!",
+            deal3: "Flight + Hotel + Transfers in Dubai from $499!",
+            contactTitle: "Contact Us",
+            email: "Email: example@email.com",
+            phone: "Phone: +1-234-567-8900"
+        },
+        he: {
+            title: "טרווליה",
+            homeLink: "בית",
+            dealsLink: "דילים",
+            contactLink: "צור קשר",
+            welcome: "ברוכים הבאים לטרווליה!",
+            homeText: "מצא את הטיסות, המלונות, השכרת הרכב וההסעות הטובים ביותר בעולם.",
+            dealsTitle: "דילים חמים",
+            deal1: "טיסה + מלון ביוון החל מ-$299!",
+            deal2: "טיסה + מלון + רכב בספרד החל מ-$450!",
+            deal3: "טיסה + מלון + הסעות בדובאי החל מ-$499!",
+            contactTitle: "צור קשר",
+            email: "אימייל: example@email.com",
+            phone: "טלפון: +1-234-567-8900"
+        },
+        ru: {
+            title: "Травелия",
+            homeLink: "Главная",
+            dealsLink: "Сделки",
+            contactLink: "Контакты",
+            welcome: "Добро пожаловать в Травелию!",
+            homeText: "Найдите лучшие рейсы, отели, аренду автомобилей и трансферы по всему миру.",
+            dealsTitle: "Горячие предложения",
+            deal1: "Рейс + Отель в Греции от $299!",
+            deal2: "Рейс + Отель + Авто в Испании от $450!",
+            deal3: "Рейс + Отель + Трансферы в Дубае от $499!",
+            contactTitle: "Связаться с нами",
+            email: "Эл. почта: example@email.com",
+            phone: "Телефон: +1-234-567-8900"
+        },
+        fr: {
+            title: "Travelia",
+            homeLink: "Accueil",
+            dealsLink: "Offres",
+            contactLink: "Contact",
+            welcome: "Bienvenue à Travelia!",
+            homeText: "Trouvez les meilleurs vols, hôtels, locations de voitures et transferts dans le monde entier.",
+            dealsTitle: "Offres Chaudes",
+            deal1: "Vol + Hôtel en Grèce dès 299$!",
+            deal2: "Vol + Hôtel + Voiture en Espagne dès 450$!",
+            deal3: "Vol + Hôtel + Transferts à Dubaï dès 499$!",
+            contactTitle: "Contactez-nous",
+            email: "Email : example@email.com",
+            phone: "Téléphone : +1-234-567-8900"
+        },
+        ar: {
+            title: "ترافليا",
+            homeLink: "الرئيسية",
+            dealsLink: "عروض",
+            contactLink: "اتصل بنا",
+            welcome: "مرحبًا بكم في ترافليا!",
+            homeText: "ابحث عن أفضل الرحلات الجوية والفنادق وتأجير السيارات والنقل حول العالم.",
+            dealsTitle: "عروض ساخنة",
+            deal1: "رحلة + فندق في اليونان من 299$!",
+            deal2: "رحلة + فندق + سيارة في إسبانيا من 450$!",
+            deal3: "رحلة + فندق + نقل في دبي من 499$!",
+            contactTitle: "اتصل بنا",
+            email: "البريد الإلكتروني: example@email.com",
+            phone: "هاتف: +1-234-567-8900"
+        },
+        es: {
+            title: "Travelia",
+            homeLink: "Inicio",
+            dealsLink: "Ofertas",
+            contactLink: "Contacto",
+            welcome: "¡Bienvenido a Travelia!",
+            homeText: "Encuentra los mejores vuelos, hoteles, alquiler de coches y traslados en todo el mundo.",
+            dealsTitle: "Ofertas Calientes",
+            deal1: "Vuelo + Hotel en Grecia desde $299!",
+            deal2: "Vuelo + Hotel + Coche en España desde $450!",
+            deal3: "Vuelo + Hotel + Traslados en Dubái desde $499!",
+            contactTitle: "Contáctanos",
+            email: "Correo electrónico: example@email.com",
+            phone: "Teléfono: +1-234-567-8900"
+        }
+    };
+
+    function changeLang() {
+        const lang = document.getElementById('lang').value;
+        const t = texts[lang] || texts['en'];
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('homeLink').textContent = t.homeLink;
+        document.getElementById('dealsLink').textContent = t.dealsLink;
+        document.getElementById('contactLink').textContent = t.contactLink;
+        document.getElementById('welcome').textContent = t.welcome;
+        document.getElementById('homeText').textContent = t.homeText;
+        document.getElementById('dealsTitle').textContent = t.dealsTitle;
+        document.getElementById('deal1').textContent = t.deal1;
+        document.getElementById('deal2').textContent = t.deal2;
+        document.getElementById('deal3').textContent = t.deal3;
+        document.getElementById('contactTitle').textContent = t.contactTitle;
+        document.getElementById('email').textContent = t.email;
+        document.getElementById('phone').textContent = t.phone;
+    }
+
+    async function searchFlightHotel() {
+        alert('Fetching flight + hotel data (demo)...');
+        try {
+            const response = await fetch('https://dummyjson.com/products/1');
+            const data = await response.json();
+            alert('Example result: ' + JSON.stringify(data));
+        } catch (error) {
+            alert('Error fetching data.');
+        }
+    }
+
+    async function searchFlights() {
+        alert('Fetching flights (demo)...');
+        try {
+            const response = await fetch('https://dummyjson.com/products/2');
+            const data = await response.json();
+            alert('Example flight result: ' + JSON.stringify(data));
+        } catch (error) {
+            alert('Error fetching flight data.');
+        }
+    }
+
+    async function searchHotels() {
+        alert('Fetching hotels (demo)...');
+        try {
+            const response = await fetch('https://dummyjson.com/products/3');
+            const data = await response.json();
+            alert('Example hotel result: ' + JSON.stringify(data));
+        } catch (error) {
+            alert('Error fetching hotel data.');
+        }
+    }
+</script>
+
+</body>
+</html>
