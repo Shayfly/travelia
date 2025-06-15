@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travelia - Dream Travel Deals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #f0f8ff, #e6f7ff);
+            color: #333;
+        }
+        header {
+            background: url('https://source.unsplash.com/1600x900/?travel') no-repeat center center/cover;
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+        }
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+        }
+        header p {
+            font-size: 1.5em;
+            margin-top: 15px;
+        }
+        .main-btn {
+            background-color: #ff6600;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 18px;
+            margin-top: 25px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .main-btn:hover {
+            background-color: #e55d00;
+            transform: scale(1.05);
+        }
+        nav {
+            background: #004080;
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ffcc00;
+        }
+        section {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #004080;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            line-height: 2;
+            font-size: 1.1em;
+        }
+        footer {
+            background: #004080;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Travelia</h1>
+    <p>Find Flights, Hotels, Cars & Transfers — All In One Place!</p>
+    <button class="main-btn">Start Booking</button>
+</header>
+
+<nav>
+    <a href="#deals">Deals</a>
+    <a href="#search">Search</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="deals">
+    <h2>🔥 Hot Deals 🔥</h2>
+    <ul>
+        <li>✈️ Flight + Hotel in Greece from $299!</li>
+        <li>🚗 Flight + Hotel + Car in Spain from $450!</li>
+        <li>🚕 Flight + Hotel + Transfers in Dubai from $499!</li>
+    </ul>
+</section>
+
+<section id="search">
+    <h2>Search Your Trip</h2>
+    <button class="main-btn">Search Flight + Hotel</button>
+    <button class="main-btn">Search Flights Only</button>
+    <button class="main-btn">Search Hotels Only</button>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: example@email.com</p>
+    <p>Phone: +1-234-567-8900</p>
+</section>
+
+<footer>
+    <p>&copy; 2025 Travelia. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+Add new design for Travelia homepage
